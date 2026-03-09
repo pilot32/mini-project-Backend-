@@ -6,7 +6,7 @@ router = APIRouter()
 
 
 @router.post("/submit-answer")
-async def submit_answer(
+def submit_answer(
     exam_id: str = Form(...), student_id: str = Form(...), file: UploadFile = File(...)
 ):
 
@@ -14,7 +14,8 @@ async def submit_answer(
 
     file_path = f"{submission_id}_{file.filename}"
 
-    content = await file.read()
+    # Read the file synchronously
+    content = file.file.read()
 
     # upload to supabase storage
     supabase.storage.from_("answer-sheets").upload(file_path, content)
