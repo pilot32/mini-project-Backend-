@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from app.routes.submissions import router as submission_router
 
 app = FastAPI()
 
-
-@app.get("/")
-def main():
-    return {"message": "FastAPI server is running"}
+app.include_router(submission_router, prefix="/api")
