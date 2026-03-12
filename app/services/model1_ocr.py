@@ -1,8 +1,8 @@
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 from PIL import Image
 
-processor = TrOCRProcessor.from_pretrained("microsoft/trocr-small-handwritten")
-model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-small-handwritten")
+processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
+model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten")
 
 
 def run_ocr(image_path):
